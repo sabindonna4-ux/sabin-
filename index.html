@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Sabin Bohora</title>
+
+  <style>
+
+    body {
+      background-color: #0d0d1a;
+      color: #e2e8f0;
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #080810;
+      border-bottom: 1px solid #a0aec0;
+      padding: 18px 40px;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav span {
+      color: #a0aec0;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-right: auto;
+      letter-spacing: 0.2em;
+    }
+
+    nav a {
+      color: #4a5568;
+      text-decoration: none;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-family: Georgia, serif;
+    }
+
+    nav a:hover { color: #a0aec0; }
+
+    /* Hero */
+    #hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      min-height: 100vh;
+      padding: 140px 60px 100px;
+      border-bottom: 1px solid #1a1a2e;
+      background: radial-gradient(ellipse at center, #111128 0%, #0d0d1a 70%);
+    }
+
+    .hero-photo {
+      width: 280px;
+      height: 340px;
+      object-fit: cover;
+      border: 1px solid #a0aec0;
+      flex-shrink: 0;
+      box-shadow: -20px 0 40px rgba(160,174,192,0.15), 20px 0 40px rgba(160,174,192,0.15), 0 0 60px rgba(160,174,192,0.1);
+      filter: grayscale(15%);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .hero-photo:hover {
+      box-shadow: -30px 0 60px rgba(160,174,192,0.25), 30px 0 60px rgba(160,174,192,0.25), 0 0 80px rgba(160,174,192,0.2);
+    }
+
+    .hero-text { text-align: left; }
+
+    .hero-text p {
+      color: #718096;
+      font-size: 0.82rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-text h1 {
+      font-size: 90px;
+      line-height: 0.95;
+      margin: 0;
+      color: #e2e8f0;
+      font-family: Georgia, serif;
+      font-weight: normal;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-text h1:last-of-type { color: #a0aec0; }
+
+    .hero-tagline {
+      color: #4a5568 !important;
+      font-size: 1rem !important;
+      letter-spacing: 0.05em !important;
+      text-transform: none !important;
+      margin-top: 20px !important;
+      font-style: italic;
+    }
+
+    .hero-text a {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 14px 32px;
+      background-color: transparent;
+      color: #a0aec0;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
+      border: 1px solid #a0aec0;
+      font-family: Georgia, serif;
+      transition: all 0.3s;
+    }
+
+    .hero-text a:hover {
+      background-color: #a0aec0;
+      color: #0d0d1a;
+      box-shadow: 0 0 20px rgba(160,174,192,0.5);
+    }
+
+    /* About */
+    #about {
+      padding: 100px 60px;
+      border-bottom: 1px solid #1a1a2e;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    #about p:first-child {
+      color: #718096;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    #about h2 {
+      font-size: 52px;
+      color: #e2e8f0;
+      margin: 8px 0 28px;
+      font-weight: normal;
+      font-family: Georgia, serif;
+    }
+
+    #about p { color: #718096; line-height: 1.9; margin-bottom: 14px; font-size: 1rem; }
+    #about strong { color: #a0aec0; font-weight: normal; font-style: italic; }
+
+    /* Achievements */
+    #achievements {
+      padding: 100px 60px;
+      background-color: #080810;
+      border-bottom: 1px solid #1a1a2e;
+    }
+
+    #achievements > p:first-child {
+      color: #718096;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    #achievements h2 {
+      font-size: 52px;
+      color: #e2e8f0;
+      margin: 8px 0 40px;
+      font-weight: normal;
+      font-family: Georgia, serif;
+    }
+
+    #achievements > div {
+      background-color: #0d0d1a;
+      border: 1px solid #1a1a2e;
+      border-left: 2px solid #a0aec0;
+      padding: 28px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      transition: all 0.3s;
+    }
+
+    #achievements > div:hover {
+      border-color: #a0aec0;
+      box-shadow: 0 0 30px rgba(160,174,192,0.15), inset 0 0 20px rgba(160,174,192,0.08);
+    }
+
+    #achievements img {
+      width: 260px;
+      height: 180px;
+      object-fit: cover;
+      flex-shrink: 0;
+      filter: grayscale(20%);
+      border: 1px solid #1a1a2e;
+    }
+
+    #achievements h3 {
+      color: #e2e8f0;
+      font-size: 1.4rem;
+      margin: 6px 0 12px;
+      font-weight: normal;
+      font-family: Georgia, serif;
+    }
+
+    #achievements div > p {
+      color: #718096;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    #achievements div p:nth-child(4) {
+      color: #718096;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      text-transform: none;
+      letter-spacing: 0;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    #achievements div p:last-child {
+      color: #2d3748;
+      font-size: 0.78rem;
+      margin-top: 16px;
+      text-transform: none;
+      letter-spacing: 0.05em;
+    }
+
+    /* Conclusion */
+    #conclusion {
+      padding: 100px 60px;
+      border-bottom: 1px solid #1a1a2e;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #0d0d1a;
+    }
+
+    #conclusion > p:first-child {
+      color: #718096;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    #conclusion h2 {
+      font-size: 52px;
+      color: #e2e8f0;
+      margin: 8px 0 28px;
+      font-weight: normal;
+      font-family: Georgia, serif;
+    }
+
+    #conclusion p { 
+      color: #718096; 
+      line-height: 1.9; 
+      margin-bottom: 18px; 
+      font-size: 1rem; 
+    }
+
+    #conclusion strong { 
+      color: #a0aec0; 
+      font-weight: normal; 
+      font-style: italic; 
+    }
+
+    /* Contact */
+    #contact {
+      padding: 100px 60px;
+      border-bottom: 1px solid #1a1a2e;
+      background: radial-gradient(ellipse at center, #111128 0%, #0d0d1a 70%);
+    }
+
+    #contact > p:first-child {
+      color: #718096;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    #contact h2 {
+      font-size: 52px;
+      color: #e2e8f0;
+      margin: 8px 0 40px;
+      font-weight: normal;
+      font-family: Georgia, serif;
+    }
+
+    .contact-grid { display: flex; gap: 60px; }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1;
+    }
+
+    .contact-links p {
+      color: #718096;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background-color: #080810;
+      border: 1px solid #1a1a2e;
+      color: #e2e8f0;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .social-link:hover {
+      border-color: #a0aec0;
+      background-color: #111128;
+      box-shadow: 0 0 25px rgba(160,174,192,0.3), inset 0 0 15px rgba(160,174,192,0.1);
+    }
+
+    .social-link img { width: 22px; height: 22px; }
+
+    .social-link span {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #718096;
+      font-family: Georgia, serif;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background-color: #080810;
+      border: 1px solid #1a1a2e;
+      color: #e2e8f0;
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      font-family: Georgia, serif;
+      outline: none;
+      resize: none;
+      transition: all 0.3s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus { 
+      border-color: #a0aec0;
+      box-shadow: 0 0 20px rgba(160,174,192,0.2), inset 0 0 10px rgba(160,174,192,0.05);
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: #2d3748; font-style: italic; }
+
+    .contact-form button {
+      padding: 14px 28px;
+      background-color: transparent;
+      color: #a0aec0;
+      border: 1px solid #a0aec0;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      cursor: pointer;
+      font-family: Georgia, serif;
+      align-self: flex-start;
+      transition: all 0.3s;
+    }
+
+    .contact-form button:hover {
+      background-color: #a0aec0;
+      color: #0d0d1a;
+      box-shadow: 0 0 25px rgba(160,174,192,0.4);
+    }
+
+    /* Footer */
+    footer {
+      padding: 28px 60px;
+      border-top: 1px solid #1a1a2e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #080810;
+    }
+
+    footer p {
+      color: #2d3748;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      font-family: Georgia, serif;
+    }
+
+    /* Scroll animation */
+    .slide-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <span>S B</span>
+    <a href="#about">About</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+
+    <!-- REPLACE my-photo.jpg with your photo file name -->
+   <img class="hero-photo" src="sabin.jpg.jpeg" alt="Sabin Bohora" />
+    <div class="hero-text">
+      <p>Singer & Footballer</p>
+      <h1>Sabin</h1>
+      <h1>Bohora.</h1>
+      <p class="hero-tagline">Scoring goals on the field, hitting notes on the stage.</p>
+      <a href="#about">Explore My Work</a>
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2 class="slide-up delay-2">About Me</h2>
+    <p class="slide-up delay-3">
+      Hi, I am <strong>Sabin Bohora</strong> — a passionate singer and
+      footballer who lives life with energy, creativity, and purpose.
+    </p>
+    <p class="slide-up delay-4">
+      On the <strong>football field</strong>, I give everything I have —
+      working hard, playing smart, and pushing my limits every single game.
+    </p>
+    <p class="slide-up delay-5">
+      On the <strong>stage</strong>, I express my soul through music.
+      Singing is not just a hobby for me — it is how I connect with people
+      and share my story.
+    </p>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+  
+    <h2 class="slide-up delay-2">Achievements</h2>
+
+    <!-- ACHIEVEMENT 1 — replace your-photo-1.jpg with your image -->
+    <div class="slide-up delay-3">
+      <img src="photo.png" alt="Achievement 1" />
+      <div>
+        <p>🎤 Singing</p>
+        <h3>Hibiscus Singing Idol 2081 & 2082– Winner</h3>
+        <p><i>Winning the Hibiscus Singing Idol 2081 was a remarkable achievement that showcased my vocal talent, dedication, and confidence as a performer. Securing the championship title in a competitive musical platform strengthened my stage presence, artistic expression, and ability to perform under pressure, while reflecting my commitment to excellence in music and the performing arts.</i></p>
+      
+      </div>
+    </div>
+
+    <!-- ACHIEVEMENT 2 — replace your-photo-2.jpg with your image -->
+    <div class="slide-up delay-4">
+      <img src="football.jpg.jpeg" alt="Achievement 2" />
+      <div>
+        <p>⚽ Football</p>
+        <h3>Football Tournament Champion</h3>
+        <p>Winning a football tournament demonstrated my teamwork, leadership, discipline, and competitive spirit. This achievement reflects my ability to perform under pressure, collaborate effectively with teammates, and contribute to success through dedication, resilience, and strategic thinking on the field.
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CONCLUSION -->
+  <section id="conclusion">
+    <p class="slide-up delay-1">My Journey</p>
+    <h2 class="slide-up delay-2">Beyond the Awards</h2>
+    <p class="slide-up delay-3">
+      My journey has been shaped by a passion for both music and sports, allowing me to develop a diverse set of skills and experiences. Winning the Hibiscus Singing Idol 2081 stands as a significant milestone in my artistic career, reflecting my vocal talent, dedication, creativity, and ability to connect with audiences through performance.
+    </p>
+    <p class="slide-up delay-4">
+      In addition, becoming a Football Tournament Champion demonstrated my teamwork, leadership, discipline, and resilience in a highly competitive environment.
+
+These achievements represent more than awards and titles; they highlight my commitment to continuous improvement, perseverance, and excellence. Through both music and football, I have learned the value of hard work, adaptability, and performing under pressure.
+    </p>
+    <p class="slide-up delay-5">
+      The experiences gained from these accomplishments have strengthened my confidence, enhanced my communication and leadership skills, and inspired me to pursue every opportunity with determination, professionalism, and a mindset focused on growth and success.
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="slide-up delay-1"> Get in Touch</p>
+    <h2 class="slide-up delay-2">Contact Me</h2>
+
+    <div class="contact-grid">
+
+      <div class="contact-links">
+        <p class="slide-up delay-3">Want to collaborate or just say hello? Find me here!</p>
+
+        <!-- REPLACE links with your real ones -->
+        <a class="social-link slide-up delay-3" href="mailto:bohorasabin52@email.com">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" style="filter:invert(0.6)" alt="Email" />
+          <span>sabin@email.com</span>
+        </a>
+
+        <a class="social-link slide-up delay-4" href="https://www.facebook.com/share/1BCJJdV81D/" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" style="filter:invert(0.6)" alt="Facebook" />
+          <span>Facebook</span>
+        </a>
+
+        <a class="social-link slide-up delay-4" href="https://www.instagram.com/sabi_nxettri1" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" style="filter:invert(0.6)" alt="Instagram" />
+          <span>Instagram</span>
+        </a>
+
+        <a class="social-link slide-up delay-5" href="https://wa.me/981-0497805" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" style="filter:invert(0.6)" alt="WhatsApp" />
+          <span>WhatsApp</span>
+        </a>
+
+      </div>
+
+      <div class="contact-form slide-up delay-3">
+        <input type="text" placeholder="Your Name" />
+        <input type="email" placeholder="Your Email" />
+        <textarea rows="5" placeholder="Your Message..."></textarea>
+        <button onclick="sendMessage()">Send Message →</button>
+        <p id="msg" style="color:#a0aec0; font-size:0.8rem; min-height:20px; font-style:italic;"></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Sabin Bohora</p>
+    <p>© 2026 — All rights reserved</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".slide-up").forEach(function(el) {
+      observer.observe(el);
+    });
+
+    function sendMessage() {
+      document.getElementById("msg").textContent = "✓ Message sent! I will get back to you soon.";
+    }
+  </script>
+
+</body>
+
+</html>
